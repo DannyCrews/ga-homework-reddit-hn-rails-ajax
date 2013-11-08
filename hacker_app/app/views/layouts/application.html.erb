@@ -10,6 +10,7 @@
     <%= csrf_meta_tags %>
   </head>
 
+
   <body>
   <!-- Header and Nav -->
   <nav class="top-bar">
@@ -23,13 +24,15 @@
       <li class="divider"></li>
       <li><%= link_to "Stories", stories_path %></li>
       <li class="divider"></li>
-      <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      <li class="divider"></li>
       <li><%#= link_to "Contact Us" %></li>
       <li class="divider"></li>
       <li><%#= link_to "Cart" %></li>
     </ul>
   </div>
+  <ul class="hmenu">
+  <%= render 'devise/menu/registration_items' %>
+  <%= render 'devise/menu/login_items' %>
+</ul>
 </nav>
   <!-- End Header and Nav --> 
 <div class="row">
