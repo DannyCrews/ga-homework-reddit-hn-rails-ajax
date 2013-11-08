@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
+    @user = User.new
   end
 
   # GET /stories/1
@@ -30,9 +31,11 @@ class StoriesController < ApplicationController
       if @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render action: 'show', status: :created, location: @story }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @story.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -44,9 +47,11 @@ class StoriesController < ApplicationController
       if @story.update(story_params)
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { render action: 'edit' }
         format.json { render json: @story.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -72,3 +77,12 @@ class StoriesController < ApplicationController
       params.require(:story).permit(:title, :link, :body, :up_votes, :down_votes, :timestamps)
     end
 end
+
+
+  
+
+  # def list_stories 
+  #   Story.all.to_json
+  # end
+
+  
