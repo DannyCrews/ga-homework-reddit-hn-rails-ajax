@@ -1,0 +1,4 @@
+$('#new_story').remove(); 
+$('#new_link').show(); 
+$('#stories').append("<li>Name: <%= @song.name %>, Duration: <%= @song.duration %>, Price: <%= @song.price %></li>");
+$('#new_story').hide();
